@@ -85,7 +85,9 @@ nav.scrolled {
 }
 .hero-photo-bg {
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 65% 40%, #5a4a3a 0%, #2a2018 50%, #100c08 100%);
+  background-image: url('/hero-placeholder.jpg');
+  background-size: cover;
+  background-position: center;
 }
 .hero-content {
   position: relative; z-index: 3;
