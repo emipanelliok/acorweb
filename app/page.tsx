@@ -41,9 +41,7 @@ export default function Home() {
     <>
       {/* NAV */}
       <nav id="mainNav">
-        <a href="#">
-          <Image src="/logo-acortex.png" alt="Acortex" width={120} height={36} priority style={{ height: '36px', width: 'auto' }} />
-        </a>
+        <a href="#" className="nav-logo">ACORTEX<sup style={{ fontSize: '9px' }}>®</sup></a>
         <div className="nav-links">
           <a href="/granulado">Granulado</a>
           <a href="/duprilene">Duprilene</a>
@@ -372,7 +370,7 @@ export default function Home() {
       <footer>
         <div className="footer-grid">
           <div className="ft-brand">
-            <Image src="/logo-acortex.png" alt="Acortex" width={120} height={36} style={{ height: '32px', width: 'auto' }} />
+            <span className="nav-logo" style={{ display: 'inline-block' }}>ACORTEX®</span>
             <p>Fábrica de revestimientos y pinturas arquitectónicas. Mendoza, Argentina.</p>
           </div>
           <div className="ft-col">
