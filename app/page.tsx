@@ -1,28 +1,13 @@
 'use client';
 
-import { useEffect } from 'react';
-import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
-const swatchColors = [
-  '#F0EAE0','#E4DBD0','#D8CEC0','#CCBFAC','#C0B098','#B0A080',
-  '#A09068','#907858','#806448','#705438','#604428','#50341A',
-  '#40260E','#301A08','#C8B8A0','#B8A888','#A89870','#988860',
-  '#887850','#786840','#885840','#984838','#A84030','#A43A2B',
-  '#B83828','#A03020','#882818','#702010','#E0D8C8','#D0C8A8',
-  '#C0B888','#B0A870','#C9A437','#B89028','#A07C20','#886818',
-  '#705410','#584008','#402C00','#281A00','#E0E0DC','#D0D0C8',
-  '#C0C0B0','#B0B098','#9EA090','#8C9080','#7A8070','#6A7060',
-  '#5A6050','#4A5040','#3A4032','#2A3024','#1E2126','#141618',
-];
+const HERO_IMAGES = ['/hero-1.jpg', '/hero-2.jpg', '/hero-3.jpg'];
 
 export default function Home() {
-  useEffect(() => {
-    const nav = document.getElementById('mainNav');
-    const handleScroll = () => {
-      nav?.classList.toggle('scrolled', window.scrollY > 60);
-    };
-    window.addEventListener('scroll', handleScroll);
+  const [heroIdx, setHeroIdx] = useState(0);
 
+  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
@@ -31,28 +16,19 @@ export default function Home() {
     );
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
+    // Hero slideshow — cambia cada 6 segundos
+    const interval = setInterval(() => {
+      setHeroIdx(i => (i + 1) % HERO_IMAGES.length);
+    }, 6000);
+
     return () => {
-      window.removeEventListener('scroll', handleScroll);
       observer.disconnect();
+      clearInterval(interval);
     };
   }, []);
 
   return (
     <>
-      {/* NAV */}
-      <nav id="mainNav">
-        <a href="#" className="nav-logo">ACORTEX<sup style={{ fontSize: '9px' }}>®</sup></a>
-        <div className="nav-links">
-          <a href="/granulado">Granulado</a>
-          <a href="/duprilene">Duprilene</a>
-          <a href="/salpicados">Salpicados</a>
-          <a href="/elastomero">Elastómero</a>
-          <a href="/obra-publica">Obra Pública</a>
-          <a href="/otros">Otros</a>
-        </div>
-        <a href="#contacto" className="nav-cta">Contacto</a>
-      </nav>
-
       {/* HERO */}
       <section id="hero">
         <div className="hero-bg" />
@@ -62,11 +38,20 @@ export default function Home() {
           <div className="geo-3" />
         </div>
         <div className="hero-photo-bg" />
-        <div className="hero-photo" />
+        <div className="hero-slides">
+          {HERO_IMAGES.map((src, i) => (
+            <div
+              key={src}
+              className={`hero-slide ${i === heroIdx ? 'active' : ''}`}
+              style={{ backgroundImage: `url(${src})` }}
+            />
+          ))}
+          <div className="hero-photo-fade" />
+        </div>
 
         <div className="hero-content">
           <div className="hero-left">
-            <div className="hero-tag">Fábrica · Mendoza · Desde 1971</div>
+            <div className="hero-tag">Fábrica · Mendoza · Desde 1972</div>
             <h1 className="hero-h1">
               Ahorrá tiempo<br />
               y dinero con<br />
@@ -91,20 +76,20 @@ export default function Home() {
       {/* STATS BAR */}
       <div className="stats-bar">
         <div className="stat-item fade-up">
-          <div className="stat-n">50<em>+</em></div>
+          <div className="stat-n"><em>+</em>50</div>
           <div className="stat-l">Años de experiencia</div>
         </div>
         <div className="stat-item fade-up d1">
-          <div className="stat-n">25<em>+</em></div>
-          <div className="stat-l">Productos en catálogo</div>
+          <div className="stat-n"><em>+</em>3500</div>
+          <div className="stat-l">Obras realizadas</div>
         </div>
         <div className="stat-item fade-up d2">
-          <div className="stat-n"><em>+</em>1200</div>
-          <div className="stat-l">Colores disponibles</div>
+          <div className="stat-n">1972</div>
+          <div className="stat-l">Año de fundación</div>
         </div>
         <div className="stat-item fade-up d3">
-          <div className="stat-n">∞</div>
-          <div className="stat-l">Aplicaciones posibles</div>
+          <div className="stat-n">®</div>
+          <div className="stat-l">Fórmula registrada</div>
         </div>
       </div>
 
@@ -116,7 +101,7 @@ export default function Home() {
         <div className="about-copy">
           <div className="overline">Innovación en superficies</div>
           <h2 className="fade-up">Una empresa que transforma la construcción.</h2>
-          <p className="fade-up d1">Acortex reemplaza yeso, revoques finos y pinturas por un sistema único de alto desempeño. Alta durabilidad, acabado premium y más de 50 años de experiencia respaldan cada obra.</p>
+          <p className="fade-up d1">Somos una marca especializada en la ingeniería de revestimientos destinados a la protección y embellecimiento de espacios arquitectónicos. Transformamos la construcción a través de sistemas que equilibran la sofisticación visual con la integridad funcional. Nuestra propuesta de valor se centra en proporcionar a arquitectos y desarrolladores materiales de alta gama que resisten el paso del tiempo.</p>
           <div className="tag-list fade-up d2">
             <span className="tag">Residencial</span>
             <span className="tag">Comercial</span>
@@ -176,33 +161,33 @@ export default function Home() {
         <div className="pilares-grid">
           <div className="pilar fade-up">
             <div className="pilar-num">01</div>
-            <h3>Protección</h3>
-            <p>Protección ante la humedad, hongos e impactos. Resguarda la estructura de tu propiedad a largo plazo.</p>
+            <h3>Sustitución inteligente</h3>
+            <p>Simplificamos la obra al reemplazar múltiples capas tradicionales (pintura, yeso, revoque) por un solo sistema de alto desempeño.</p>
           </div>
           <div className="pilar fade-up d1">
             <div className="pilar-num">02</div>
-            <h3>Diseño</h3>
-            <p>Acortex reemplaza yeso, revoques finos y pinturas. Un solo sistema para preparación y terminación.</p>
+            <h3>Ciclo de vida prolongado</h3>
+            <p>Máxima durabilidad que protege la inversión a largo plazo.</p>
           </div>
           <div className="pilar fade-up d2">
             <div className="pilar-num">03</div>
-            <h3>Durabilidad</h3>
-            <p>Mantiene la firmeza propia de la piedra, conservando intacta su estructura ante el paso del tiempo.</p>
+            <h3>Tecnología hidrófuga</h3>
+            <p>Propiedades de impermeabilización avanzadas con permeabilidad al vapor para evitar patologías edilicias.</p>
           </div>
           <div className="pilar fade-up d3">
             <div className="pilar-num">04</div>
-            <h3>Hidrorepelente</h3>
-            <p>Impide la absorción de agua y resguarda todas las superficies. Tecnología hidrófuga con permeabilidad al vapor.</p>
+            <h3>Protección exterior</h3>
+            <p>Estabilidad garantizada frente a la radiación UV y agentes atmosféricos.</p>
           </div>
           <div className="pilar fade-up">
             <div className="pilar-num">05</div>
-            <h3>Alta resistencia</h3>
-            <p>Resistencia garantizada frente a impactos, abrasión, rayos UV y variaciones climáticas extremas.</p>
+            <h3>Sofisticación en terminaciones</h3>
+            <p>Diversidad de texturas y colores que elevan el estándar visual de cada proyecto.</p>
           </div>
           <div className="pilar fade-up d1">
             <div className="pilar-num">06</div>
-            <h3>Acabado premium</h3>
-            <p>Calidad profesional con más de 1200 colores y múltiples texturas. Estética sofisticada en cada terminación.</p>
+            <h3>Aplicación integral</h3>
+            <p>Eficacia comprobada en edificaciones desde cero y rehabilitaciones arquitectónicas.</p>
           </div>
         </div>
       </section>
@@ -217,7 +202,7 @@ export default function Home() {
             <div className="overline">Nuevo producto</div>
             <h2>Acorflex.<br /><em>La alternativa<br />al microcemento.</em></h2>
             <p>Acabado continuo tipo microcemento con la simplicidad del estuco. Para baños, livings, columnas y cielorrasos de diseño.</p>
-            <a href="#" className="btn-solid" style={{ alignSelf: 'flex-start' }}>Conocer Acorflex →</a>
+            <a href="/acorflex" className="btn-solid" style={{ alignSelf: 'flex-start' }}>Conocer Acorflex →</a>
           </div>
         </div>
         <div className="nuevo-item" style={{ borderTop: '1px solid rgba(30,33,38,.08)' }}>
@@ -275,19 +260,6 @@ export default function Home() {
               <div className="bc-meta">Maipú · Granulado Fino</div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* COLORES */}
-      <section id="colores">
-        <div className="colores-head">
-          <h2><em>+1200</em><br />colores.</h2>
-          <p>Filtrá por producto, tono o familia. Más de 1200 opciones entre todas las líneas.</p>
-        </div>
-        <div className="swatch-strip">
-          {swatchColors.map((color, i) => (
-            <div key={i} className="sw" style={{ background: color }} />
-          ))}
         </div>
       </section>
 
@@ -365,61 +337,6 @@ export default function Home() {
           <a href="#" className="btn-outline-ink" style={{ display: 'inline-block', marginTop: '8px', fontSize: '13px', padding: '10px 20px' }}>Ver en Maps →</a>
         </div>
       </section>
-
-      {/* FOOTER */}
-      <footer>
-        <div className="footer-grid">
-          <div className="ft-brand">
-            <span className="nav-logo" style={{ display: 'inline-block' }}>ACORTEX®</span>
-            <p>Fábrica de revestimientos y pinturas arquitectónicas. Mendoza, Argentina.</p>
-          </div>
-          <div className="ft-col">
-            <h4>Productos</h4>
-            <ul>
-              <li><a href="/granulado">Granulado</a></li>
-              <li><a href="/duprilene">Duprilene</a></li>
-              <li><a href="/salpicados">Salpicados</a></li>
-              <li><a href="/elastomero">Elastómero</a></li>
-              <li><a href="#">Acorflex</a></li>
-              <li><a href="#">Acorfloor</a></li>
-              <li><a href="/latex">Látex</a></li>
-            </ul>
-          </div>
-          <div className="ft-col">
-            <h4>Empresa</h4>
-            <ul>
-              <li><a href="#">Quiénes somos</a></li>
-              <li><a href="#">Historia</a></li>
-              <li><a href="#">Obras</a></li>
-              <li><a href="/obra-publica">Obra Pública</a></li>
-            </ul>
-          </div>
-          <div className="ft-col">
-            <h4>Recursos</h4>
-            <ul>
-              <li><a href="#">Brochure PDF</a></li>
-              <li><a href="#">Fichas técnicas</a></li>
-              <li><a href="#">Explorador colores</a></li>
-              <li><a href="#">Aplicadores</a></li>
-            </ul>
-          </div>
-          <div className="ft-col">
-            <h4>Contacto</h4>
-            <ul>
-              <li><a href="tel:02614452319">(0261) 4 452 319</a></li>
-              <li><a href="mailto:ventas@acortex.com.ar">ventas@acortex.com.ar</a></li>
-              <li><a href="#">Barcala 1931, Mendoza</a></li>
-            </ul>
-          </div>
-        </div>
-        <div className="footer-bottom">
-          <p>© 2025 Acortex. Revestimientos y Pinturas desde 1971.</p>
-          <div className="footer-social">
-            <a href="#">Instagram</a>
-            <a href="#">Facebook</a>
-          </div>
-        </div>
-      </footer>
     </>
   );
 }
