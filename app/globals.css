@@ -1138,3 +1138,86 @@ nav.scrolled .nav-logo-img img { height: 56px; }
 @media (max-width: 900px) {
   .ov-wrap { grid-template-columns: 1fr; gap: 28px; }
 }
+
+/* ════════════════════════════════════════
+   RESPONSIVE — HOME / FOOTER (mobile ≤ 768px)
+   ════════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* HERO */
+  #hero { min-height: 580px; height: auto; padding-top: 96px; }
+  .hero-content {
+    grid-template-columns: 1fr;
+    padding: 0 24px 48px; gap: 24px;
+  }
+  .hero-right { align-items: flex-start; gap: 20px; }
+  .hero-sub { text-align: left; max-width: none; }
+  .hero-btns { flex-wrap: wrap; }
+  .hero-scroll { display: none; }
+
+  /* STATS BAR: 4 → 2 columnas */
+  .stats-bar { grid-template-columns: 1fr 1fr; }
+  .stat-item { padding: 28px 22px; }
+  .stat-item:nth-child(2) { border-right: none; }
+  .stat-item:nth-child(1),
+  .stat-item:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,.06); }
+
+  /* ABOUT: 2 → 1 columna (foto arriba) */
+  #about { grid-template-columns: 1fr; }
+  .about-img { height: 300px; }
+  .about-copy { padding: 48px 24px; }
+  .about-copy p { margin-bottom: 32px; max-width: none; }
+
+  /* SISTEMA */
+  #sistema { grid-template-columns: 1fr; padding: 64px 24px; gap: 36px; }
+  .sistema-left p { max-width: none; }
+  .sist-num { font-size: 38px; min-width: 42px; }
+
+  /* PILARES: 3 → 1 columna */
+  #pilares { padding: 64px 24px; }
+  .pilares-top { margin-bottom: 36px; }
+  .pilares-grid { grid-template-columns: 1fr; }
+  .pilar { padding: 30px 26px; }
+
+  /* PRODUCTOS NUEVOS: 2 → 1 columna (foto arriba) */
+  .nuevo-item { grid-template-columns: 1fr; min-height: 0; }
+  .nuevo-item:nth-child(2) { direction: ltr; }
+  .nuevo-photo { min-height: 280px; }
+  .nuevo-copy { padding: 48px 24px; }
+  .nuevo-copy p { max-width: none; }
+
+  /* OBRAS: bento → 2 columnas, primera card ancha */
+  #obras { padding: 64px 24px; }
+  .obras-head { margin-bottom: 28px; }
+  .bento { grid-template-columns: 1fr 1fr; grid-template-rows: none; gap: 10px; }
+  .bento-card { aspect-ratio: 1 / 1; }
+  .bento-card:first-child { grid-row: auto; grid-column: 1 / 3; aspect-ratio: 16 / 10; }
+
+  /* ARQUITECTOS: 2 → 1 columna */
+  #arquitectos { grid-template-columns: 1fr; }
+  .arq-left { padding: 56px 24px; }
+  .arq-left p { max-width: none; }
+  .arq-btns { max-width: none; }
+  .arq-right { min-height: 280px; }
+
+  /* CONTACTO: 2 → 1 columna */
+  #contacto { grid-template-columns: 1fr; padding: 64px 24px; gap: 48px; }
+  .contacto-left h2 { margin-bottom: 32px; }
+
+  /* FOOTER: 5 → 2 columnas */
+  footer { padding: 56px 24px 32px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px 20px; }
+  .ft-brand { grid-column: 1 / 3; }
+  .footer-bottom { flex-direction: column; gap: 16px; align-items: flex-start; }
+
+  /* VISUALIZER (probador de color) */
+  .ov-swatches { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .ov-current-name { font-size: 28px; }
+}
+
+/* Ajustes finos para teléfonos chicos */
+@media (max-width: 430px) {
+  .stats-bar { grid-template-columns: 1fr 1fr; }
+  .bento { grid-template-columns: 1fr; }
+  .bento-card:first-child { grid-column: auto; }
+  .bento-card { aspect-ratio: 16 / 11; }
+}
