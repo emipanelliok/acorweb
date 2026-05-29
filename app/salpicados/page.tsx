@@ -12,7 +12,7 @@ export default function SalpicadosPage() {
       title="Salpicado"
       subtitle="Revestimiento versátil y resistente"
       description="Es ideal para realzar los revoques existentes y cubrir micro fisuras y grietas, logrando una textura decorativa de buen acabado."
-      heroImage="/salpicado-hero.jpg"
+      heroImage="/salpicado.png"
       tags={['Interior', 'Exterior', 'Versátil']}
       longDescription="Revestimiento versátil, flexible y resistente a climas rigurosos. Disponible en tres acabados —Gota Fina, Gota Media y Planchado— para adaptarse a cada necesidad. Ideal para superficies curvas, molduras y emprendimientos de gran escala por su fácil aplicación, rapidez y bajo costo de mano de obra."
       variants={[
