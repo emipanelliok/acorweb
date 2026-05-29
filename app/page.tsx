@@ -215,8 +215,7 @@ export default function Home() {
       {/* MÁS VENDIDOS */}
       <section id="destacados">
         <div className="destacados-head">
-          <div className="overline">Línea principal</div>
-          <h2 className="fade-up">Los más elegidos</h2>
+          <div className="overline fade-up">Línea principal</div>
         </div>
         <div className="destacados-grid">
           <a className="dest-card fade-up" href="/granulado">

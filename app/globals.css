@@ -417,8 +417,9 @@ nav.scrolled {
   border-top: 1px solid rgba(30,33,38,.06);
 }
 .destacados-head {
-  display: flex; flex-direction: column; gap: 12px; margin-bottom: 48px;
+  display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px;
 }
+.destacados-head .overline { margin-bottom: 0; }
 .destacados-head h2 {
   font-family: var(--font-serif);
   font-size: clamp(36px, 4vw, 56px);
