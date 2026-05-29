@@ -12,7 +12,7 @@ export default function AcorfloorPage() {
       title="Acorfloor"
       subtitle="Pisos exteriores"
       description="Recubrimiento antiderrapante de granito decorativo de uso interior/exterior que revive superficies de concreto. Acabado durable, decorativo y funcional que protege y renueva patios, albercas, pasillos, terrazas y espacios."
-      heroImage="/acortex-procrear-ezeiza.png"
+      heroImage="/acorfloor.jpg"
       tags={['Antiderrapante', 'Exterior', 'Granito decorativo']}
       longDescription="Recubrimiento antiderrapante de granito decorativo de uso interior/exterior que revive superficies de concreto. Provee un acabado durable, decorativo y funcional que protege y renueva, dando vida al patio, alberca, pasillo, terraza y espacios interiores y exteriores."
       features={[
