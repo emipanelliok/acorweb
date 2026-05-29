@@ -14,7 +14,12 @@ export default function GranuladoPage() {
       description="El revestimiento Granulado forma una capa dura y al mismo tiempo elástica, que asegura una gran durabilidad, disminuyendo el riesgo de grietas por dilatación o vibraciones."
       heroImage="/textured-granulated-wall-coating-surface.jpg"
       tags={['Interior', 'Exterior']}
-      longDescription="Descubrí las ventajas del revestimiento Granulado. Disponible en tres texturas —Medio, 20/40 y Fino— para elegir la ideal según el proyecto. Forma una capa dura y elástica que asegura durabilidad y reduce el riesgo de fisuras por dilatación."
+      longDescription="Descubrí las ventajas del revestimiento Granulado. Disponible en tres texturas —Fino, 20/40 y Medio— para elegir la ideal según el proyecto. Forma una capa dura y elástica que asegura durabilidad y reduce el riesgo de fisuras por dilatación."
+      variants={[
+        { name: 'Granulado Fino', image: '/granulado-textura-fino.jpg', thickness: '1,0 – 1,5 mm', consumption: '2,0 a 2,5 kg/m²' },
+        { name: 'Granulado 20/40', image: '/granulado-textura-2040.jpg', thickness: '1,5 – 2,0 mm', consumption: '3,0 a 4,0 kg/m²' },
+        { name: 'Granulado Medio', image: '/granulado-textura-medio.jpg', thickness: '2,0 – 4,0 mm', consumption: '4,0 a 6,0 kg/m²' },
+      ]}
       features={[
         { title: 'Acabado decorativo', desc: 'Relieve uniforme y moderno.' },
         { title: 'Alta resistencia', desc: 'A impactos y abrasión.' },
@@ -24,9 +29,6 @@ export default function GranuladoPage() {
         { title: 'Durabilidad frente a rayos UV', desc: 'Y cambios climáticos.' },
         { title: 'Fácil mantenimiento y limpieza', desc: 'Conserva su apariencia con poco esfuerzo.' },
         { title: 'Apto para interiores y exteriores', desc: 'Versatilidad total.' },
-        { title: 'Granulado Medio', desc: 'Espesor 2,0 - 4,0mm. Consumo aproximado 4,0 a 6,0 kg/m².' },
-        { title: 'Granulado 20/40', desc: 'Espesor 1,5 - 2,0mm. Consumo aproximado 3,0 a 4,0 kg/m².' },
-        { title: 'Granulado Fino', desc: 'Espesor 1,0 - 1,5mm. Consumo aproximado 2,0 a 2,5 kg/m².' },
       ]}
       specsImage="/granulado-medio-thick-textured-coating.jpg"
       specs={[

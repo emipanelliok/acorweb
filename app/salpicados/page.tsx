@@ -12,9 +12,14 @@ export default function SalpicadosPage() {
       title="Salpicado"
       subtitle="Revestimiento versátil y resistente"
       description="Es ideal para realzar los revoques existentes y cubrir micro fisuras y grietas, logrando una textura decorativa de buen acabado."
-      heroImage="/speckled-textured-wall-coating.jpg"
+      heroImage="/salpicado-hero.jpg"
       tags={['Interior', 'Exterior', 'Versátil']}
       longDescription="Revestimiento versátil, flexible y resistente a climas rigurosos. Disponible en tres acabados —Gota Fina, Gota Media y Planchado— para adaptarse a cada necesidad. Ideal para superficies curvas, molduras y emprendimientos de gran escala por su fácil aplicación, rapidez y bajo costo de mano de obra."
+      variants={[
+        { name: 'Salpicado Gota Fina', image: '/salpicado-textura-gota-fina.jpg', thickness: '1,2 a 1,5 mm', consumption: '2 a 3 kg/m²', zoom: 1.55 },
+        { name: 'Salpicado Gota Media', image: '/salpicado-textura-gota-media.jpg', thickness: '1,5 – 1,7 mm', consumption: '2 a 3 kg/m²' },
+        { name: 'Salpicado Planchado', image: '/salpicado-textura-planchado.jpg', thickness: '1,5 – 1,7 mm', consumption: '2 a 3 kg/m²', zoom: 1.55 },
+      ]}
       features={[
         { title: 'Versátil y Resistente', desc: 'Revestimiento versátil, flexible y resistente a climas rigurosos.' },
         { title: 'Protección Total', desc: 'Cuida tus paredes internas y externas.' },
@@ -23,9 +28,6 @@ export default function SalpicadosPage() {
         { title: 'Superficies Curvas', desc: 'Ideal para molduras, cornisas, balaustres y otras superficies curvas donde no es posible aplicar con llana.' },
         { title: 'Gran Escala', desc: 'Ideal para emprendimientos de gran escala debido a su fácil aplicación, rapidez y bajo costo de mano obra.' },
         { title: 'Flexible', desc: 'Permite acompañar las dilataciones del muro sin que se cuartee el revestimiento.' },
-        { title: 'Gota Fina', desc: 'Espesor 1,2 a 1,5mm. Consumo 2 a 3 kg/m².' },
-        { title: 'Gota Media', desc: 'Espesor 1,5 - 1,7mm. Consumo 2 a 3 kg/m².' },
-        { title: 'Planchado', desc: 'Espesor 1,5 - 1,7mm. Consumo 2 a 3 kg/m². Alisado con llana plástica.' },
       ]}
       specsImage="/salpicado-gota-fina-fine-speckled-texture.jpg"
       specs={[

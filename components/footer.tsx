@@ -47,9 +47,9 @@ export function Footer() {
         <div className="ft-col">
           <h4>Contacto</h4>
           <ul>
-            <li><a href="tel:02614452319">(0261) 4 452 319</a></li>
+            <li><a href="https://wa.me/5492612488902" target="_blank" rel="noopener noreferrer">WhatsApp: 261 248-8902</a></li>
             <li><a href="mailto:ventas@acortex.com.ar">ventas@acortex.com.ar</a></li>
-            <li>Barcala 1931, Mendoza</li>
+            <li>Azcuénaga, Acceso Sur Lateral Este, Luján de Cuyo, Mendoza</li>
           </ul>
         </div>
       </div>

@@ -1,30 +1,42 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import type { LucideIcon } from 'lucide-react';
+import { OrganicVisualizer } from './organic-visualizer';
 
 type Feature = { icon?: LucideIcon; title: string; desc: string };
 type Spec = { label: string; value: string };
 type Step = { title: string; desc: string };
 type Color = { name: string; image: string };
+type Variant = { name: string; image: string; thickness: string; consumption: string; thicknessLabel?: string; zoom?: number };
+type Work = { name: string; image: string; location?: string; desc: string };
 
 export interface ProductPageProps {
   title: string;
   subtitle?: string;
   description: string;
   heroImage: string;
+  heroImages?: string[];
   tags?: string[];
   longDescription?: string;
+  gallery?: string[];
+  variants?: Variant[];
+  works?: Work[];
   features?: Feature[];
   specsImage?: string;
   specs?: Spec[];
   uses?: string[];
   application?: Step[];
   colors?: Color[];
+  colorsLayout?: 'grid' | 'strips';
+  visualizer?: { image: string; colors: { name: string; swatch: string; texture: string }[] };
 }
 
 export function ProductPage(p: ProductPageProps) {
+  const heroSlides = p.heroImages && p.heroImages.length > 0 ? p.heroImages : null;
+  const [heroIdx, setHeroIdx] = useState(0);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
@@ -33,6 +45,12 @@ export function ProductPage(p: ProductPageProps) {
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    if (!heroSlides) return;
+    const id = setInterval(() => setHeroIdx(i => (i + 1) % heroSlides.length), 3500);
+    return () => clearInterval(id);
+  }, [heroSlides]);
 
   return (
     <>
@@ -60,7 +78,20 @@ export function ProductPage(p: ProductPageProps) {
           </div>
           <div className="product-hero-right">
             <div className="product-hero-photo">
-              <Image src={p.heroImage} alt={p.title} fill className="object-cover" priority />
+              {heroSlides ? (
+                heroSlides.map((src, i) => (
+                  <Image
+                    key={src}
+                    src={src}
+                    alt={`${p.title} ${i + 1}`}
+                    fill
+                    priority={i === 0}
+                    className={`object-cover product-hero-slide ${i === heroIdx ? 'active' : ''}`}
+                  />
+                ))
+              ) : (
+                <Image src={p.heroImage} alt={p.title} fill className="object-cover" priority />
+              )}
             </div>
           </div>
         </div>
@@ -71,6 +102,36 @@ export function ProductPage(p: ProductPageProps) {
         <section className="prod-section prod-section-light">
           <div className="prod-narrow fade-up">
             <p className="prod-lead">{p.longDescription}</p>
+          </div>
+        </section>
+      )}
+
+      {/* VARIANTS / TEXTURAS */}
+      {p.variants && p.variants.length > 0 && (
+        <section className="prod-section">
+          <div className="prod-section-head fade-up">
+            <div className="overline">Texturas</div>
+            <h2>Variantes disponibles</h2>
+          </div>
+          <div className="prod-variants fade-up d1">
+            {p.variants.map((v, i) => (
+              <div key={i} className="prod-variant">
+                <div className="prod-variant-img">
+                  <Image
+                    src={v.image}
+                    alt={v.name}
+                    fill
+                    className="object-cover"
+                    style={v.zoom ? { transform: `scale(${v.zoom})` } : undefined}
+                  />
+                </div>
+                <h3>{v.name}</h3>
+                <div className="prod-variant-specs">
+                  <p><span>{v.thicknessLabel ?? 'Espesor'}:</span> {v.thickness}</p>
+                  <p><span>Consumo aprox.:</span> {v.consumption}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
       )}
@@ -88,6 +149,23 @@ export function ProductPage(p: ProductPageProps) {
                 <div className="prod-feature-num">{String(i + 1).padStart(2, '0')}</div>
                 <h3>{f.title}</h3>
                 <p>{f.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* GALLERY */}
+      {p.gallery && p.gallery.length > 0 && (
+        <section className="prod-section prod-section-light">
+          <div className="prod-section-head fade-up">
+            <div className="overline">Galería</div>
+            <h2>Aplicaciones</h2>
+          </div>
+          <div className="prod-gallery fade-up d1">
+            {p.gallery.map((src, i) => (
+              <div key={i} className="prod-gallery-img">
+                <Image src={src} alt={`${p.title} — aplicación ${i + 1}`} fill className="object-cover" />
               </div>
             ))}
           </div>
@@ -157,6 +235,35 @@ export function ProductPage(p: ProductPageProps) {
         </section>
       )}
 
+      {/* WORKS / OBRAS */}
+      {p.works && p.works.length > 0 && (
+        <section className="prod-section prod-section-light">
+          <div className="prod-section-head fade-up">
+            <div className="overline">Obras</div>
+            <h2>Proyectos realizados</h2>
+          </div>
+          <div className="prod-works fade-up d1">
+            {p.works.map((w, i) => (
+              <div key={i} className="prod-work">
+                <div className="prod-work-img">
+                  <Image src={w.image} alt={w.name} fill className="object-cover" />
+                </div>
+                <div className="prod-work-body">
+                  {w.location && <div className="prod-work-loc">{w.location}</div>}
+                  <h3>{w.name}</h3>
+                  <p>{w.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* VISUALIZER */}
+      {p.visualizer && (
+        <OrganicVisualizer image={p.visualizer.image} colors={p.visualizer.colors} />
+      )}
+
       {/* COLORS */}
       {p.colors && p.colors.length > 0 && (
         <section className="prod-section prod-section-light">
@@ -164,7 +271,7 @@ export function ProductPage(p: ProductPageProps) {
             <div className="overline">Paleta</div>
             <h2>Colores disponibles</h2>
           </div>
-          <div className="prod-colors-grid fade-up d1">
+          <div className={`prod-colors-grid fade-up d1 ${p.colorsLayout === 'strips' ? 'prod-colors-strips' : ''}`}>
             {p.colors.map((c, i) => (
               <div key={i} className="prod-color">
                 <div className="prod-color-img">

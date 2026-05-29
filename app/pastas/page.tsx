@@ -12,18 +12,19 @@ export default function PastasPage() {
       title="Pastas"
       subtitle="Revestimiento"
       description="Los texturados Acortex son ideales para decoración y protección externa e interna de casas y edificios, brindando un efecto decorativo inalterable con el tiempo."
-      heroImage="/smooth-paste-coating-application.jpg"
+      heroImage="/pasta-hero.jpg"
       tags={['Interior', 'Exterior']}
-      longDescription="Un revestimiento moldeable, hidrorepelente y durable, pensado para decorar y proteger paredes internas y externas. Su conformación permite un nivel de personalización alto y su excelente adherencia garantiza larga duración."
+      longDescription="Un revestimiento moldeable, hidrorepelente y durable, pensado para decorar y proteger paredes internas y externas. Su conformación permite un nivel de personalización alto y su excelente adherencia garantiza larga duración. Disponible en blanco tiza natural y en más de 2.800 colores personalizados sin costo adicional."
       features={[
         { title: 'Hidrorepelente', desc: 'Cuida tus paredes tanto internas como externas.' },
         { title: 'Durable', desc: 'Capa de excelente adherencia que garantiza su larga duración.' },
         { title: 'Moldeable', desc: 'Su conformación permite un nivel de personalización alto.' },
       ]}
       specs={[
-        { label: 'Espesor', value: '0,5–1,5 mm' },
-        { label: 'Consumo', value: '1,0–2,0 kg/m²' },
-        { label: 'Aplicación', value: 'Rodillo' },
+        { label: 'Rendimiento', value: '0,9–1,2 kg/m² (revoques finos)' },
+        { label: 'Texturas medianas', value: 'El consumo aumenta según la textura requerida' },
+        { label: 'Aplicación', value: 'Rodillo, llana o pistola de aire' },
+        { label: 'Colores', value: 'Blanco tiza natural + 2.800 colores' },
       ]}
       uses={[
         'Decoración y protección externa e interna de edificios y casas.',

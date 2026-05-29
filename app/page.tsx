@@ -3,9 +3,23 @@
 import { useEffect, useState } from 'react';
 
 const HERO_IMAGES = ['/hero-1.jpg', '/hero-2.jpg', '/hero-3.jpg'];
+const COFARMEN_IMAGES = ['/cofarmen-1.jpg', '/cofarmen-2.jpg', '/cofarmen-3.jpg'];
+const WHATSAPP_NUMBER = '5492612488902'; // +54 9 261 248-8902
 
 export default function Home() {
   const [heroIdx, setHeroIdx] = useState(0);
+  const [cofarmenIdx, setCofarmenIdx] = useState(0);
+  const [form, setForm] = useState({ nombre: '', email: '', telefono: '', mensaje: '' });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const msg =
+      `Hola Acortex! Soy ${form.nombre || '(sin nombre)'}.\n\n` +
+      `${form.mensaje || 'Quería hacer una consulta.'}\n\n` +
+      `Email: ${form.email || '-'}\n` +
+      `Teléfono: ${form.telefono || '-'}`;
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -21,9 +35,15 @@ export default function Home() {
       setHeroIdx(i => (i + 1) % HERO_IMAGES.length);
     }, 6000);
 
+    // Cofarmen slideshow (tarjeta grande de obras) — cambia cada 4 segundos
+    const cofarmenInterval = setInterval(() => {
+      setCofarmenIdx(i => (i + 1) % COFARMEN_IMAGES.length);
+    }, 4000);
+
     return () => {
       observer.disconnect();
       clearInterval(interval);
+      clearInterval(cofarmenInterval);
     };
   }, []);
 
@@ -226,38 +246,47 @@ export default function Home() {
         </div>
         <div className="bento">
           <div className="bento-card fade-up">
-            <div className="bc-bg bc-1" /><div className="bc-overlay" />
+            <div className="bc-bg bc-rotate">
+              {COFARMEN_IMAGES.map((src, i) => (
+                <div
+                  key={src}
+                  className={`bc-slide ${i === cofarmenIdx ? 'active' : ''}`}
+                  style={{ backgroundImage: `url(${src})` }}
+                />
+              ))}
+            </div>
+            <div className="bc-overlay" />
             <div className="bc-info">
-              <div className="bc-title">Casa Chacras de Coria</div>
-              <div className="bc-meta">Mendoza · Granulado Medio</div>
+              <div className="bc-title">Cofarmen</div>
+              <div className="bc-meta">Mendoza · Fachada e interiores</div>
             </div>
           </div>
           <div className="bento-card fade-up d1">
             <div className="bc-bg bc-2" /><div className="bc-overlay" />
             <div className="bc-info">
-              <div className="bc-title">Edificio Comercial</div>
-              <div className="bc-meta">Guaymallén · Duprilene</div>
+              <div className="bc-title">Casa en barrio privado</div>
+              <div className="bc-meta">Mendoza · Revestimiento exterior</div>
             </div>
           </div>
           <div className="bento-card fade-up d2">
             <div className="bc-bg bc-3" /><div className="bc-overlay" />
             <div className="bc-info">
-              <div className="bc-title">Country El Carrizal</div>
-              <div className="bc-meta">Luján · Salpicado</div>
+              <div className="bc-title">Casa moderna</div>
+              <div className="bc-meta">Mendoza · Texturado fino</div>
             </div>
           </div>
           <div className="bento-card fade-up d1">
             <div className="bc-bg bc-4" /><div className="bc-overlay" />
             <div className="bc-info">
-              <div className="bc-title">Duplex San José</div>
-              <div className="bc-meta">Mendoza · Acorflex</div>
+              <div className="bc-title">Casa de campo</div>
+              <div className="bc-meta">Mendoza · Revestimiento exterior</div>
             </div>
           </div>
           <div className="bento-card fade-up d2">
             <div className="bc-bg bc-5" /><div className="bc-overlay" />
             <div className="bc-info">
-              <div className="bc-title">Housing Palmares</div>
-              <div className="bc-meta">Maipú · Granulado Fino</div>
+              <div className="bc-title">Edificio residencial</div>
+              <div className="bc-meta">Mendoza · Revestimiento de fachada</div>
             </div>
           </div>
         </div>
@@ -294,24 +323,24 @@ export default function Home() {
       <section id="contacto">
         <div className="contacto-left">
           <h2>Hablemos.</h2>
-          <form onSubmit={e => e.preventDefault()}>
+          <form onSubmit={handleSubmit}>
             <div className="form-row">
               <label>Nombre</label>
-              <input type="text" placeholder="Tu nombre completo" />
+              <input type="text" placeholder="Tu nombre completo" value={form.nombre} onChange={e => setForm({ ...form, nombre: e.target.value })} />
             </div>
             <div className="form-row">
               <label>Email</label>
-              <input type="email" placeholder="tu@email.com" />
+              <input type="email" placeholder="tu@email.com" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} />
             </div>
             <div className="form-row">
               <label>Teléfono</label>
-              <input type="tel" placeholder="(261) 000-0000" />
+              <input type="tel" placeholder="(261) 000-0000" value={form.telefono} onChange={e => setForm({ ...form, telefono: e.target.value })} />
             </div>
             <div className="form-row">
               <label>Mensaje</label>
-              <textarea placeholder="¿En qué podemos ayudarte?" />
+              <textarea placeholder="¿En qué podemos ayudarte?" value={form.mensaje} onChange={e => setForm({ ...form, mensaje: e.target.value })} />
             </div>
-            <button type="submit" className="btn-solid" style={{ border: 'none' }}>Enviar mensaje</button>
+            <button type="submit" className="btn-solid" style={{ border: 'none' }}>Enviar por WhatsApp</button>
           </form>
         </div>
         <div className="contacto-right">
@@ -319,9 +348,9 @@ export default function Home() {
             <div className="ci-label">Dirección</div>
             <p>
               <strong>ACORTEX Casa Central</strong><br />
-              Barcala 1931<br />
-              San José – Guaymallén<br />
-              Mendoza, Argentina · CP 5519
+              Azcuénaga, Acceso Sur Lateral Este<br />
+              Luján de Cuyo<br />
+              Mendoza, Argentina · M5507
             </p>
           </div>
           <div className="ci-div" />
@@ -332,9 +361,12 @@ export default function Home() {
           <div className="ci-div" />
           <div className="ci">
             <div className="ci-label">Contacto</div>
-            <p>(0261) 4 452 319<br />ventas@acortex.com.ar</p>
+            <p>
+              <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer">WhatsApp: 261 248-8902</a><br />
+              ventas@acortex.com.ar
+            </p>
           </div>
-          <a href="#" className="btn-outline-ink" style={{ display: 'inline-block', marginTop: '8px', fontSize: '13px', padding: '10px 20px' }}>Ver en Maps →</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Azcu%C3%A9naga%2C+Acceso+Sur+Lateral+Este%2C+Luj%C3%A1n+de+Cuyo%2C+Mendoza" target="_blank" rel="noopener noreferrer" className="btn-outline-ink" style={{ display: 'inline-block', marginTop: '8px', fontSize: '13px', padding: '10px 20px' }}>Ver en Maps →</a>
         </div>
       </section>
     </>

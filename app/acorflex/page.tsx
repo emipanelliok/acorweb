@@ -12,9 +12,10 @@ export default function AcorflexPage() {
       title="Acorflex"
       subtitle="Revestimiento decorativo"
       description="Revestimiento decorativo de alta prestación, desarrollado para imitar el aspecto del microcemento tradicional. Permite obtener superficies continuas, de estética moderna y aspecto cementicio, con una aplicación más simple y flexible que el microcemento real."
-      heroImage="/acorflex-microcement-decorative-coating.jpg"
+      heroImage="/acorflex1.jpg"
       tags={['Decorativo', 'Microcemento', 'Premium']}
       longDescription="Material elaborado a base de minerales que permiten crear un revestimiento decorativo liso y con alta duración. Con colores esfumados, pero con todas las características de la nueva generación de revestimientos continuos, imita el aspecto del microcemento. Se aplica como un estuco tradicional, en capas finas y logra una terminación continua, lisa o apenas texturada, muy similar al microcemento pulido."
+      gallery={['/acorflex2.jpg', '/acorflex3.png', '/acorflex4.jpg', '/acorflex5.webp']}
       features={[
         { title: 'Acabado marmóreo', desc: 'Efecto similar al microcemento. Moderno, uniforme con efecto cementicio.' },
         { title: 'Bajo espesor', desc: 'Se aplica en capas finas, sin agregar peso al sustrato.' },

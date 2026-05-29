@@ -14,7 +14,12 @@ export default function DuprilenePage() {
       description="Este revestimiento está diseñado especialmente para decoración y protección de paredes exteriores e interiores, por su resistencia y acabado decorativo."
       heroImage="/smooth-duprilene-wall-coating-finish.jpg"
       tags={['Interior', 'Exterior']}
-      longDescription="Un revestimiento completo con todas las propiedades que necesitás: textura rústica decorativa, base acuosa sin solventes contaminantes, alta adherencia y durabilidad frente a la intemperie. Disponible en tres granulometrías —Medio, Fino + y Fino— para adaptarse a cada proyecto."
+      longDescription="Un revestimiento completo con todas las propiedades que necesitás: textura rústica decorativa, base acuosa sin solventes contaminantes, alta adherencia y durabilidad frente a la intemperie. Disponible en tres granulometrías —Fino, Fino+ y Medio— para adaptarse a cada proyecto."
+      variants={[
+        { name: 'Duprilene Fino', image: '/duprilene-textura-fino.jpg', thicknessLabel: 'Granulometría', thickness: '1,0 – 1,5 mm', consumption: '1,5 a 2 kg/m²' },
+        { name: 'Duprilene Fino+', image: '/duprilene-textura-fino-plus.jpg', thicknessLabel: 'Granulometría', thickness: '1,0 – 1,5 mm', consumption: '2 a 2,3 kg/m²', zoom: 1.9 },
+        { name: 'Duprilene Medio', image: '/duprilene-textura-medio.jpg', thicknessLabel: 'Granulometría', thickness: '2,0 – 2,5 mm', consumption: '2,3 a 3 kg/m²' },
+      ]}
       features={[
         { title: 'Acabado decorativo con textura rústica', desc: 'Aporta carácter y personalidad a la superficie revestida.' },
         { title: 'Elaborado en base a resinas en base acuosa', desc: 'Sin solventes contaminantes, más amigable con el ambiente.' },
@@ -24,9 +29,6 @@ export default function DuprilenePage() {
         { title: 'Repele el agua y la humedad', desc: 'Protege el sustrato evitando filtraciones.' },
         { title: 'Durabilidad frente a rayos UV', desc: 'Resiste cambios climáticos sin perder propiedades.' },
         { title: 'Fácil mantenimiento y limpieza', desc: 'Apto para interiores y exteriores.' },
-        { title: 'Duprilene Medio', desc: 'Granulometría 2,0 - 2,5mm. Consumo aproximado 2,3 a 3 kg/m².' },
-        { title: 'Duprilene Fino +', desc: 'Granulometría 1,0 - 1,5mm. Consumo aproximado 2 a 2,3 kg/m².' },
-        { title: 'Duprilene Fino', desc: 'Granulometría 1,0 - 1,5mm. Consumo aproximado 1,5 a 2 kg/m².' },
       ]}
       specsImage="/duprilene-medio-texture-rustic-coating.jpg"
       specs={[

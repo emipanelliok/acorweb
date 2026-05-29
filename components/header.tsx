@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const mainLinks = [
+  { href: '/organic', label: 'Organic' },
   { href: '/granulado', label: 'Granulado' },
   { href: '/duprilene', label: 'Duprilene' },
   { href: '/salpicados', label: 'Salpicados' },
