@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 type ColorOpt = { name: string; swatch: string; texture: string };
 
 const TILE = 220; // tamaño del patrón de textura (px) sobre la foto
+const TEX_V = '?v=4'; // cache-busting de las texturas de pared
 
 function loadImg(src: string) {
   return new Promise<HTMLImageElement>((res, rej) => {
@@ -114,7 +115,7 @@ export function OrganicVisualizer({ image, colors }: { image: string; colors: Co
       maskRef.current = mask;
 
       // precargar texturas
-      const imgs = await Promise.all(colors.map(c => loadImg(c.texture)));
+      const imgs = await Promise.all(colors.map(c => loadImg(c.texture + TEX_V)));
       if (cancelled) return;
       colors.forEach((c, i) => { texRef.current[c.texture] = imgs[i]; });
       setReady(true);
