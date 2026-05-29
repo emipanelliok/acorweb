@@ -12,7 +12,7 @@ export default function DuprilenePage() {
       title="Duprilene"
       subtitle="Revestimiento"
       description="Este revestimiento está diseñado especialmente para decoración y protección de paredes exteriores e interiores, por su resistencia y acabado decorativo."
-      heroImage="/smooth-duprilene-wall-coating-finish.jpg"
+      heroImage="/duprilene-hero.jpg"
       tags={['Interior', 'Exterior']}
       longDescription="Un revestimiento completo con todas las propiedades que necesitás: textura rústica decorativa, base acuosa sin solventes contaminantes, alta adherencia y durabilidad frente a la intemperie. Disponible en tres granulometrías —Fino, Fino+ y Medio— para adaptarse a cada proyecto."
       variants={[
