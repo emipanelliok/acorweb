@@ -81,7 +81,7 @@ export default function Home() {
           <div className="hero-right">
             <p className="hero-sub">Protección, diseño y durabilidad para tu hogar. Más de 50 años de experiencia en revestimientos.</p>
             <div className="hero-btns">
-              <a href="#pilares" className="btn-solid">Ver productos</a>
+              <a href="#destacados" className="btn-solid">Ver productos</a>
               <a href="/brochure-acortex.pdf" target="_blank" rel="noopener noreferrer" className="btn-ghost">Descargar brochure</a>
             </div>
           </div>
