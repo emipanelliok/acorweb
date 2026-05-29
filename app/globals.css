@@ -440,16 +440,14 @@ nav.scrolled {
   aspect-ratio: 4 / 3;
   background-size: cover; background-position: center;
 }
-.dest-body { padding: 28px 26px 32px; display: flex; flex-direction: column; gap: 12px; }
+.dest-body { padding: 32px 28px 34px; display: flex; flex-direction: column; gap: 14px; }
 .dest-body h3 {
-  font-family: var(--font-serif); font-size: 26px; font-weight: 400;
-  color: var(--ink); line-height: 1.1;
+  font-family: var(--font-serif); font-size: 30px; font-weight: 300;
+  color: var(--ink); line-height: 1.05; letter-spacing: -.02em;
 }
-.dest-body p { font-size: 14px; line-height: 1.6; color: rgba(30,33,38,.65); }
-.dest-link {
-  font-size: 13px; font-weight: 600; color: var(--clay);
-  letter-spacing: .02em; margin-top: 4px;
-}
+.dest-dot { color: var(--clay); }
+.dest-body p { font-size: 15px; line-height: 1.65; color: rgba(30,33,38,.62); }
+.dest-body .btn-solid { margin-top: 6px; }
 
 /* ── OBRAS ── */
 #obras {

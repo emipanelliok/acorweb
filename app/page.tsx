@@ -218,30 +218,30 @@ export default function Home() {
           <div className="overline fade-up">Línea principal</div>
         </div>
         <div className="destacados-grid">
-          <a className="dest-card fade-up" href="/granulado">
+          <div className="dest-card fade-up">
             <div className="dest-img" style={{ backgroundImage: "url('/granulado-textura-medio.jpg')" }} />
             <div className="dest-body">
-              <h3>Granulado</h3>
+              <h3>Granulado<span className="dest-dot">.</span></h3>
               <p>Capa dura y elástica de gran durabilidad. Tres texturas: Fino, 20/40 y Medio.</p>
-              <span className="dest-link">Ver producto →</span>
+              <a href="/granulado" className="btn-solid" style={{ alignSelf: 'flex-start' }}>Conocer Granulado →</a>
             </div>
-          </a>
-          <a className="dest-card fade-up d1" href="/duprilene">
+          </div>
+          <div className="dest-card fade-up d1">
             <div className="dest-img" style={{ backgroundImage: "url('/duprilene-textura-medio.jpg')" }} />
             <div className="dest-body">
-              <h3>Duprilene</h3>
+              <h3>Duprilene<span className="dest-dot">.</span></h3>
               <p>Textura rústica decorativa en base acuosa. Tres granulometrías para cada proyecto.</p>
-              <span className="dest-link">Ver producto →</span>
+              <a href="/duprilene" className="btn-solid" style={{ alignSelf: 'flex-start' }}>Conocer Duprilene →</a>
             </div>
-          </a>
-          <a className="dest-card fade-up d2" href="/salpicados">
+          </div>
+          <div className="dest-card fade-up d2">
             <div className="dest-img" style={{ backgroundImage: "url('/salpicado-textura-gota-media.jpg')" }} />
             <div className="dest-body">
-              <h3>Salpicado</h3>
+              <h3>Salpicado<span className="dest-dot">.</span></h3>
               <p>Versátil y flexible, ideal para grandes superficies y formas curvas. Tres acabados.</p>
-              <span className="dest-link">Ver producto →</span>
+              <a href="/salpicados" className="btn-solid" style={{ alignSelf: 'flex-start' }}>Conocer Salpicado →</a>
             </div>
-          </a>
+          </div>
         </div>
       </section>
 
