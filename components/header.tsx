@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const mainLinks = [
-  { href: '/organic', label: 'Organic' },
+const mainLinks: { href: string; label: string; badge?: string }[] = [
+  { href: '/organic', label: 'Organic', badge: 'NEW' },
   { href: '/granulado', label: 'Granulado' },
   { href: '/duprilene', label: 'Duprilene' },
   { href: '/salpicados', label: 'Salpicados' },
@@ -52,7 +52,10 @@ export function Header() {
 
       <div className="nav-links">
         {mainLinks.map(l => (
-          <Link key={l.href} href={l.href}>{l.label}</Link>
+          <Link key={l.href} href={l.href}>
+            {l.label}
+            {l.badge && <span className="nav-badge">{l.badge}</span>}
+          </Link>
         ))}
         <div
           className="nav-otros"
@@ -87,6 +90,7 @@ export function Header() {
           {mainLinks.map(l => (
             <Link key={l.href} href={l.href} onClick={() => setMobileOpen(false)}>
               {l.label}
+              {l.badge && <span className="nav-badge">{l.badge}</span>}
             </Link>
           ))}
           <div className="nav-mobile-sep">Otros</div>
