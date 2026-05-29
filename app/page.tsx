@@ -216,6 +216,17 @@ export default function Home() {
       <section id="nuevos">
         <div className="nuevo-item">
           <div className="nuevo-photo">
+            <div className="np-bg np-bg-3" />
+          </div>
+          <div className="nuevo-copy">
+            <div className="overline">Nueva línea</div>
+            <h2>Organic Series.<br /><em>Piedra natural,<br />directo de la cantera.</em></h2>
+            <p>Revestimiento con minerales en su estado más puro, sin pigmentos artificiales. Color real de la roca, inalterable al sol. Probá los colores sobre una fachada.</p>
+            <a href="/organic" className="btn-solid" style={{ alignSelf: 'flex-start' }}>Conocer Organic →</a>
+          </div>
+        </div>
+        <div className="nuevo-item" style={{ borderTop: '1px solid rgba(30,33,38,.08)' }}>
+          <div className="nuevo-photo">
             <div className="np-bg np-bg-1" />
           </div>
           <div className="nuevo-copy">
@@ -233,7 +244,7 @@ export default function Home() {
             <div className="overline">Nuevo producto</div>
             <h2>Acorfloor.<br /><em>Pisos exteriores<br />que duran.</em></h2>
             <p>Granito antiderrapante decorativo para patios, piletas y terrazas. Alta resistencia climática y bajo costo por m².</p>
-            <a href="#" className="btn-solid" style={{ alignSelf: 'flex-start' }}>Conocer Acorfloor →</a>
+            <a href="/acorfloor" className="btn-solid" style={{ alignSelf: 'flex-start' }}>Conocer Acorfloor →</a>
           </div>
         </div>
       </section>

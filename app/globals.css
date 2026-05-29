@@ -383,6 +383,11 @@ nav.scrolled {
   background-size: cover;
   background-position: center;
 }
+.np-bg-3 {
+  background-image: url('/organic-oxido.jpg');
+  background-size: cover;
+  background-position: center;
+}
 .np-bg-2 {
   background-image: url('/nuevos-acorfloor.jpg');
   background-size: cover;
