@@ -52,6 +52,21 @@ export default function GranuladoPage() {
           desc: 'El acabado texturado final se obtiene con fratacho plástico o herramientas específicas según el efecto buscado.',
         },
       ]}
+      visualizer={{
+        image: '/casa-organic.jpg',
+        colors: [
+          { name: 'Blanco Mármol', swatch: '/colores/blanco-marmol-tex.jpg', texture: '/colores/blanco-marmol-tex.jpg' },
+          { name: 'Beige Crema', swatch: '/colores/beige-crema-tex.jpg', texture: '/colores/beige-crema-tex.jpg' },
+          { name: 'Beige Cacao', swatch: '/colores/beige-cacao-tex.jpg', texture: '/colores/beige-cacao-tex.jpg' },
+          { name: 'Gris Acero', swatch: '/colores/gris-acero-tex.jpg', texture: '/colores/gris-acero-tex.jpg' },
+          { name: 'Gris Plomo', swatch: '/colores/gris-plomo-tex.jpg', texture: '/colores/gris-plomo-tex.jpg' },
+          { name: 'Nuez', swatch: '/colores/marron-nuez-tex.jpg', texture: '/colores/marron-nuez-tex.jpg' },
+          { name: 'Visón', swatch: '/colores/marron-vison-tex.jpg', texture: '/colores/marron-vison-tex.jpg' },
+          { name: 'Tabaco', swatch: '/colores/marron-tabaco-tex.jpg', texture: '/colores/marron-tabaco-tex.jpg' },
+          { name: 'Caoba', swatch: '/colores/marron-caoba-tex.jpg', texture: '/colores/marron-caoba-tex.jpg' },
+          { name: 'Pardo', swatch: '/colores/marron-adobe-tex.jpg', texture: '/colores/marron-adobe-tex.jpg' },
+        ],
+      }}
       colors={[
         { name: 'Blanco Mármol', image: '/colores/blanco-marmol.jpg' },
         { name: 'Beige Crema', image: '/colores/beige-crema.jpg' },

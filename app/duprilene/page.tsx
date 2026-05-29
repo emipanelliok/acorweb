@@ -54,6 +54,20 @@ export default function DuprilenePage() {
           desc: 'La terminación final se logra planchando con llana ejerciendo una mínima presión sobre la superficie, en forma de líneas o giros según el efecto deseado.',
         },
       ]}
+      visualizer={{
+        image: '/casa-organic.jpg',
+        colors: [
+          { name: 'Blanco Tiza', swatch: '/colores/blanco-tiza-tex.jpg', texture: '/colores/blanco-tiza-tex.jpg' },
+          { name: 'Arena', swatch: '/colores/marron-arena-tex.jpg', texture: '/colores/marron-arena-tex.jpg' },
+          { name: 'Marfil', swatch: '/colores/amarillo-marfil-tex.jpg', texture: '/colores/amarillo-marfil-tex.jpg' },
+          { name: 'Avellana', swatch: '/colores/beige-avellana-tex.jpg', texture: '/colores/beige-avellana-tex.jpg' },
+          { name: 'Cacao', swatch: '/colores/beige-cacao-tex.jpg', texture: '/colores/beige-cacao-tex.jpg' },
+          { name: 'Chocolate', swatch: '/colores/marron-chocolate-tex.jpg', texture: '/colores/marron-chocolate-tex.jpg' },
+          { name: 'Gris Humo', swatch: '/colores/gris-humo-tex.jpg', texture: '/colores/gris-humo-tex.jpg' },
+          { name: 'Verde Oliva', swatch: '/colores/verde-oliva-tex.jpg', texture: '/colores/verde-oliva-tex.jpg' },
+          { name: 'Verde Cemento', swatch: '/colores/verde-cemento-tex.jpg', texture: '/colores/verde-cemento-tex.jpg' },
+        ],
+      }}
       colors={[
         { name: 'Blanco Tiza', image: '/colores/blanco-tiza.jpg' },
         { name: 'Arena', image: '/colores/marron-arena.jpg' },
