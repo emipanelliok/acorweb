@@ -82,7 +82,7 @@ export default function Home() {
             <p className="hero-sub">Protección, diseño y durabilidad para tu hogar. Más de 50 años de experiencia en revestimientos.</p>
             <div className="hero-btns">
               <a href="#pilares" className="btn-solid">Ver productos</a>
-              <a href="#arquitectos" className="btn-ghost">Descargar brochure</a>
+              <a href="/brochure-acortex.pdf" target="_blank" rel="noopener noreferrer" className="btn-ghost">Descargar brochure</a>
             </div>
           </div>
         </div>
@@ -299,7 +299,7 @@ export default function Home() {
           <h2 className="fade-up">Para arquitectos<br />y desarrolladores.</h2>
           <p className="fade-up d1">Fichas técnicas completas, asesoría de aplicación, muestras físicas y red de aplicadores certificados.</p>
           <div className="arq-btns fade-up d2">
-            <a href="#" className="btn-ink">Descargar brochure PDF (16 pág.)</a>
+            <a href="/brochure-acortex.pdf" target="_blank" rel="noopener noreferrer" className="btn-ink">Descargar brochure PDF</a>
             <a href="#contacto" className="btn-outline-ink">Solicitar asesoría técnica</a>
           </div>
         </div>

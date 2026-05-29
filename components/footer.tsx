@@ -39,7 +39,7 @@ export function Footer() {
         <div className="ft-col">
           <h4>Recursos</h4>
           <ul>
-            <li><a href="#">Brochure PDF</a></li>
+            <li><a href="/brochure-acortex.pdf" target="_blank" rel="noopener noreferrer">Brochure PDF</a></li>
             <li><a href="#">Fichas técnicas</a></li>
             <li><a href="#">Aplicadores</a></li>
           </ul>
