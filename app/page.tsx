@@ -212,6 +212,40 @@ export default function Home() {
         </div>
       </section>
 
+      {/* MÁS VENDIDOS */}
+      <section id="destacados">
+        <div className="destacados-head">
+          <div className="overline">Línea principal</div>
+          <h2 className="fade-up">Los más elegidos</h2>
+        </div>
+        <div className="destacados-grid">
+          <a className="dest-card fade-up" href="/granulado">
+            <div className="dest-img" style={{ backgroundImage: "url('/granulado-textura-medio.jpg')" }} />
+            <div className="dest-body">
+              <h3>Granulado</h3>
+              <p>Capa dura y elástica de gran durabilidad. Tres texturas: Fino, 20/40 y Medio.</p>
+              <span className="dest-link">Ver producto →</span>
+            </div>
+          </a>
+          <a className="dest-card fade-up d1" href="/duprilene">
+            <div className="dest-img" style={{ backgroundImage: "url('/duprilene-textura-medio.jpg')" }} />
+            <div className="dest-body">
+              <h3>Duprilene</h3>
+              <p>Textura rústica decorativa en base acuosa. Tres granulometrías para cada proyecto.</p>
+              <span className="dest-link">Ver producto →</span>
+            </div>
+          </a>
+          <a className="dest-card fade-up d2" href="/salpicados">
+            <div className="dest-img" style={{ backgroundImage: "url('/salpicado-textura-gota-media.jpg')" }} />
+            <div className="dest-body">
+              <h3>Salpicado</h3>
+              <p>Versátil y flexible, ideal para grandes superficies y formas curvas. Tres acabados.</p>
+              <span className="dest-link">Ver producto →</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
       {/* PRODUCTOS NUEVOS */}
       <section id="nuevos">
         <div className="nuevo-item">

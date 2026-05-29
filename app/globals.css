@@ -410,6 +410,46 @@ nav.scrolled {
   color: rgba(30,33,38,.62); max-width: 420px;
 }
 
+/* ── MÁS VENDIDOS / DESTACADOS ── */
+#destacados {
+  background: var(--bone);
+  padding: 100px 80px;
+  border-top: 1px solid rgba(30,33,38,.06);
+}
+.destacados-head {
+  display: flex; flex-direction: column; gap: 12px; margin-bottom: 48px;
+}
+.destacados-head h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 300; letter-spacing: -.02em; color: var(--ink);
+}
+.destacados-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+}
+.dest-card {
+  display: flex; flex-direction: column;
+  background: #fff; border-radius: 20px; overflow: hidden;
+  border: 1px solid rgba(30,33,38,.06);
+  box-shadow: 0 16px 40px rgba(0,0,0,.08);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.dest-card:hover { transform: translateY(-4px); box-shadow: 0 24px 54px rgba(0,0,0,.13); }
+.dest-img {
+  aspect-ratio: 4 / 3;
+  background-size: cover; background-position: center;
+}
+.dest-body { padding: 28px 26px 32px; display: flex; flex-direction: column; gap: 12px; }
+.dest-body h3 {
+  font-family: var(--font-serif); font-size: 26px; font-weight: 400;
+  color: var(--ink); line-height: 1.1;
+}
+.dest-body p { font-size: 14px; line-height: 1.6; color: rgba(30,33,38,.65); }
+.dest-link {
+  font-size: 13px; font-weight: 600; color: var(--clay);
+  letter-spacing: .02em; margin-top: 4px;
+}
+
 /* ── OBRAS ── */
 #obras {
   background: var(--bone);
@@ -1189,6 +1229,10 @@ nav.scrolled .nav-logo-img img { height: 56px; }
   .nuevo-photo { min-height: 280px; }
   .nuevo-copy { padding: 48px 24px; }
   .nuevo-copy p { max-width: none; }
+
+  /* MÁS VENDIDOS: 3 → 1 columna */
+  #destacados { padding: 64px 24px; }
+  .destacados-grid { grid-template-columns: 1fr; gap: 24px; }
 
   /* OBRAS: bento → 2 columnas, primera card ancha */
   #obras { padding: 64px 24px; }
