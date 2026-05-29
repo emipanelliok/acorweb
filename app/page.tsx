@@ -126,7 +126,7 @@ export default function Home() {
             <span className="tag">Residencial</span>
             <span className="tag">Comercial</span>
             <span className="tag">Obra pública</span>
-            <span className="tag">Rehabilitación</span>
+            <span className="tag">Renovación</span>
             <span className="tag">Interiores</span>
           </div>
         </div>
