@@ -71,7 +71,7 @@ export default function Home() {
 
         <div className="hero-content">
           <div className="hero-left">
-            <div className="hero-tag">Fábrica · Mendoza · Desde 1972</div>
+            <div className="hero-tag">Fábrica · Mendoza · Desde 1971</div>
             <h1 className="hero-h1">
               Ahorrá tiempo<br />
               y dinero con<br />
@@ -104,7 +104,7 @@ export default function Home() {
           <div className="stat-l">Obras realizadas</div>
         </div>
         <div className="stat-item fade-up d2">
-          <div className="stat-n">1972</div>
+          <div className="stat-n">1971</div>
           <div className="stat-l">Año de fundación</div>
         </div>
         <div className="stat-item fade-up d3">
