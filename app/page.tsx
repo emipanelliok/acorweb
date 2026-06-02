@@ -73,9 +73,8 @@ export default function Home() {
           <div className="hero-left">
             <div className="hero-tag">Fábrica · Mendoza · Desde 1971</div>
             <h1 className="hero-h1">
-              Ahorrá tiempo<br />
-              y dinero con<br />
-              <em>Acortex.</em>
+              Fábrica de pinturas<br />
+              y <em>revestimientos.</em>
             </h1>
           </div>
           <div className="hero-right">
