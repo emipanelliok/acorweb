@@ -71,7 +71,7 @@ export default function Home() {
 
         <div className="hero-content">
           <div className="hero-left">
-            <div className="hero-tag">Fábrica · Mendoza · Desde 1971</div>
+            <div className="hero-tag">Desde 1971</div>
             <h1 className="hero-h1">
               Fábrica de pinturas<br />
               y <em>revestimientos.</em>
